@@ -1,6 +1,10 @@
 # FISCO-BCOS-Mosaic
 毕业设计--基于区块链的征信数据名片的设计与实现
 
+## 参考资料
+- [Django搭建个人博客](https://www.dusaiphoto.com/article/2/)
+-
+
 ## 2023.02.26 - 2023.02.28
 
 撰写开题报告 制作开题答辩PPT
@@ -97,3 +101,38 @@ urlpatterns = [
     # 目前还没有urls
 ]
 ```
+
+### Model层
+
+> Django 框架主要关注的是模型（Model）、模板（Template）和视图（Views） 称为MTV模式
+
+`Model` 存取数据
+
+`View` 决定需要调取哪些数据
+
+`Template` 负责将调取出的数据以合理的方式展现出来
+
+需要思考两个问题？
+1. 业务要求前端表单可以自定义地增减字段，提交表单返回到后端以后如何灵活地用ORM创建数据库表？
+2. 心态崩..... 放弃ORM框架只做简单保存还是直接放弃数据库只做链上存储？
+
+> CN无需使用数据库 获取表单后直接创建卡片上链即可 后续可模拟数据提供方数据库（其实也是多此一举） 目前不用
+
+用到再补充Model层...
+
+### View层
+
+直接在对应app的`views.py`下写视图 比如
+
+```python
+# 导入 HttpResponse 模块
+from django.http import HttpResponse
+
+# 视图函数
+def article_list(request):
+    return HttpResponse("Hello World!")
+```
+
+网页都是从视图派生而来。每一个视图表现为一个简单的Python函数，它必须要做的只有两件事：返回一个包含被请求页面内容的 HttpResponse对象，或者抛出一个异常，比如 Http404 。
+
+配置app的`urls.py` 将url映射到视图中
