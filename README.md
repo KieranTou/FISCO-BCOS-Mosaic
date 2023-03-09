@@ -36,6 +36,7 @@
 `python manage.py startapp createCard` CN（Credit Needed）创建数字卡片的功能模块
 
 ### 项目结构
+
 project
 - db.sqlite3 轻量级数据库文件 存储项目数据
 - createCard 刚创建的app
@@ -46,3 +47,21 @@ project
 - project
 - - settings.py 包含项目的配置参数
 - - urls.py 根路由文件
+
+### 配置createCard（注册app 路由基础配置）
+
+到project/project/settings.py中找到`INSTALLED_APPS`添加即可
+
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    # 激活app
+    'createCard',
+]
+```
