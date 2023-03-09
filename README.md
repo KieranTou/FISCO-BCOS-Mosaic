@@ -65,3 +65,35 @@ INSTALLED_APPS = [
     'createCard',
 ]
 ```
+
+配置url 到project/project/urls.py中进行修改
+
+```python
+# 导入include
+from django.urls import path, include
+urlpatterns = [
+    path('admin/', admin.site.urls),
+
+    # 配置app的url
+    path('createCard/', include('createCard.urls', namespace='createCard')),
+    # 参数article/分配了app的访问路径
+    # include将路径分发给下一步处理
+    # namespace
+]
+```
+
+现在根路由为createCard的访问都会交给createCard这个app处理，但一个app也会有多个页面地址，所以app需要一路由分发，创建`createCard.urls`
+
+需自己在createCard文件夹中创建`urls.py`
+
+```python
+# 引入path
+from django.urls import path
+
+# 正在部署的应用的名称
+app_name = 'createCard'
+
+urlpatterns = [
+    # 目前还没有urls
+]
+```
