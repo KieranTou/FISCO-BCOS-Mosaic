@@ -136,3 +136,7 @@ def article_list(request):
 网页都是从视图派生而来。每一个视图表现为一个简单的Python函数，它必须要做的只有两件事：返回一个包含被请求页面内容的 HttpResponse对象，或者抛出一个异常，比如 Http404 。
 
 配置app的`urls.py` 将url映射到视图中
+
+## 2023.03.10
+
+待解决问题：python自动编写solidity
